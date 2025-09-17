@@ -3,9 +3,10 @@
   <view class="camera-container">
     <view class="camera-placeholder">
       <icon type="camera" size="60" color="#1E90FF"></icon>
-      <text class="placeholder-text">点击拍照识别民族服饰</text>
+      <text class="placeholder-text">点击拍照或上传图片识别民族服饰</text>
     </view>
     <button class="camera-button" bindtap="takePhoto">拍照识别</button>
+    <button class="upload-button" bindtap="chooseImage">上传图片识别</button>
   </view>
   
   <view class="result-container" wx:if="{{result}}">

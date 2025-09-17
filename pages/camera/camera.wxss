@@ -30,6 +30,15 @@
   border-radius: 40rpx;
   padding: 15rpx 40rpx;
   font-size: 32rpx;
+  margin-bottom: 20rpx;
+}
+
+.upload-button {
+  background-color: #32CD32;
+  color: white;
+  border-radius: 40rpx;
+  padding: 15rpx 40rpx;
+  font-size: 32rpx;
 }
 
 .result-container {
