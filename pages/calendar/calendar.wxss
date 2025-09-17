@@ -1,0 +1,107 @@
+.container {
+  background-color: #f5f5f5;
+  min-height: 100vh;
+  padding: 20rpx;
+  box-sizing: border-box;
+}
+
+.calendar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;
+  padding: 20rpx 30rpx;
+  border-radius: 10rpx;
+  margin-bottom: 20rpx;
+}
+
+.month-title {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #333;
+}
+
+.navigation icon {
+  margin: 0 10rpx;
+}
+
+.calendar-grid {
+  display: flex;
+  flex-wrap: wrap;
+  background-color: white;
+  border-radius: 10rpx;
+  padding: 20rpx;
+  margin-bottom: 30rpx;
+}
+
+.week-header {
+  display: flex;
+  width: 100%;
+  margin-bottom: 10rpx;
+}
+
+.week-day {
+  flex: 1;
+  text-align: center;
+  font-size: 24rpx;
+  color: #666;
+}
+
+.calendar-day {
+  flex: 14.2857%;
+  height: 80rpx;
+  text-align: center;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.day-number {
+  font-size: 28rpx;
+  color: #333;
+}
+
+.today .day-number {
+  color: #1E90FF;
+  font-weight: bold;
+}
+
+.event-day .day-number {
+  color: #FF6B6B;
+}
+
+.event-marker {
+  position: absolute;
+  bottom: 5rpx;
+  font-size: 20rpx;
+  color: #FF6B6B;
+}
+
+.event-details {
+  background-color: white;
+  border-radius: 10rpx;
+  padding: 30rpx;
+}
+
+.event-title {
+  font-size: 36rpx;
+  font-weight: bold;
+  color: #1E90FF;
+  display: block;
+  margin-bottom: 10rpx;
+}
+
+.event-date {
+  font-size: 28rpx;
+  color: #666;
+  display: block;
+  margin-bottom: 20rpx;
+}
+
+.event-description {
+  font-size: 28rpx;
+  color: #333;
+  line-height: 1.5;
+}

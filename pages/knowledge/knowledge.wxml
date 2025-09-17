@@ -1,0 +1,11 @@
+<!-- 民族冷知识页面 -->
+<view class="container">
+  <view class="header">
+    <text class="title">民族冷知识</text>
+    <text class="subtitle">点击按钮了解民族趣事</text>
+  </view>
+  
+  <view class="content">
+    <button class="generate-btn" bindtap="generateKnowledge">点击生成冷知识</button>
+  </view>
+</view>

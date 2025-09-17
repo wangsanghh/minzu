@@ -1,13 +1,40 @@
 {
   "pages": [
-    "pages/index/index",
+    "pages/home/home",
+    "pages/camera/camera",
+    "pages/calendar/calendar",
+    "pages/knowledge/knowledge",
     "pages/settings/settings"
   ],
   "window": {
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "私人AI助手",
-    "navigationBarTextStyle": "black"
+    "navigationBarBackgroundColor": "#1E90FF",
+    "navigationBarTitleText": "中华民族",
+    "navigationBarTextStyle": "white"
+  },
+  "tabBar": {
+    "color": "#7A7E83",
+    "selectedColor": "#1E90FF",
+    "borderStyle": "black",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/home/home",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/camera/camera",
+        "text": "拍照识别"
+      },
+      {
+        "pagePath": "pages/calendar/calendar",
+        "text": "民族日历"
+      },
+      {
+        "pagePath": "pages/knowledge/knowledge",
+        "text": "民族冷知识"
+      }
+    ]
   },
   "sitemapLocation": "sitemap.json"
 }

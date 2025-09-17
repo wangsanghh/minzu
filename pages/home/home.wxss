@@ -1,0 +1,84 @@
+.container {
+  background-color: #f5f5f5;
+  min-height: 100vh;
+  padding: 20rpx;
+  box-sizing: border-box;
+}
+
+/* 搜索框样式 */
+.search-container {
+  background-color: #1E90FF;
+  padding: 20rpx;
+  margin-bottom: 30rpx;
+}
+
+.search-box {
+  display: flex;
+  align-items: center;
+  background-color: white;
+  border-radius: 40rpx;
+  padding: 15rpx 20rpx;
+}
+
+.search-icon {
+  margin-right: 10rpx;
+  color: #999;
+}
+
+.search-input {
+  flex: 1;
+  font-size: 28rpx;
+  color: #333;
+}
+
+/* 分类标题样式 */
+.section-title {
+  margin-bottom: 20rpx;
+}
+
+.section-title text {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #333;
+  padding-left: 10rpx;
+  border-left: 6rpx solid #1E90FF;
+}
+
+/* 民族网格样式 */
+.nation-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.nation-item {
+  width: 22%;
+  background-color: white;
+  border-radius: 10rpx;
+  margin-bottom: 20rpx;
+  padding: 20rpx 10rpx;
+  text-align: center;
+  box-shadow: 0 2rpx 10rpx rgba(0, 0, 0, 0.05);
+}
+
+.nation-item:nth-child(4n+1),
+.nation-item:nth-child(4n+2),
+.nation-item:nth-child(4n+3),
+.nation-item:nth-child(4n+4) {
+  margin-right: 0;
+}
+
+.nation-icon {
+  width: 80rpx;
+  height: 80rpx;
+  margin-bottom: 10rpx;
+}
+
+.nation-name {
+  font-size: 24rpx;
+  color: #333;
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
