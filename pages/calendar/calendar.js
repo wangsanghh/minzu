@@ -2,8 +2,48 @@ Page({
   data: {
     calendarDays: [],
     selectedEvent: null,
-    currentMonth: 9,
-    currentYear: 2025
+    currentMonth: new Date().getMonth() + 1,
+    currentYear: new Date().getFullYear(),
+    // 民族节日数据，按月份分类
+    ethnicFestivals: {
+      1: [
+        { day: 1, nation: '汉族', festival: '元旦' },
+        { day: 15, nation: '汉族', festival: '元宵节' }
+      ],
+      2: [
+        { day: 2, nation: '汉族', festival: '龙抬头' }
+      ],
+      3: [
+        { day: 3, nation: '壮族', festival: '三月三歌节' }
+      ],
+      4: [
+        { day: 10, nation: '傣族', festival: '泼水节' }
+      ],
+      5: [
+        { day: 5, nation: '汉族', festival: '端午节' }
+      ],
+      6: [
+        { day: 24, nation: '彝族', festival: '火把节' }
+      ],
+      7: [
+        { day: 7, nation: '汉族', festival: '七夕节' }
+      ],
+      8: [
+        { day: 15, nation: '汉族', festival: '中秋节' }
+      ],
+      9: [
+        { day: 9, nation: '汉族', festival: '重阳节' }
+      ],
+      10: [
+        { day: 1, nation: '汉族', festival: '国庆节' }
+      ],
+      11: [
+        { day: 11, nation: '苗族', festival: '苗年节' }
+      ],
+      12: [
+        { day: 25, nation: '汉族', festival: '圣诞节' }
+      ]
+    }
   },
 
   onLoad: function() {
@@ -23,20 +63,24 @@ Page({
         day: '',
         date: '',
         isToday: false,
-        hasEvent: false
+        hasEvent: false,
+        eventInfo: null
       });
     }
     
     // 添加实际日期
     for (let i = 1; i <= daysInMonth; i++) {
       const dateStr = `${this.data.currentYear}-${this.data.currentMonth.toString().padStart(2, '0')}-${i.toString().padStart(2, '0')}`;
-      const isToday = (i === 17 && this.data.currentMonth === 9 && this.data.currentYear === 2025); // 假设今天是2025年9月17日
+      const today = new Date();
+      const isToday = (i === today.getDate() && this.data.currentMonth === today.getMonth() + 1 && this.data.currentYear === today.getFullYear());
+      const eventInfo = this.getEventInfo(i);
       
       calendarDays.push({
         day: i,
         date: dateStr,
         isToday: isToday,
-        hasEvent: this.hasEvent(i)
+        hasEvent: !!eventInfo,
+        eventInfo: eventInfo
       });
     }
     
@@ -45,45 +89,31 @@ Page({
     });
   },
 
-  hasEvent: function(day) {
-    // 模拟某些日期有民族节日
-    const eventDays = [10, 15, 22, 28];
-    return eventDays.includes(day);
+  getEventInfo: function(day) {
+    // 获取指定日期的民族节日信息
+    const festivals = this.data.ethnicFestivals[this.data.currentMonth];
+    if (festivals) {
+      const event = festivals.find(f => f.day === day);
+      return event || null;
+    }
+    return null;
   },
 
   onDayTap: function(e) {
     const date = e.currentTarget.dataset.date;
-    if (!date) return;
+    const eventInfo = e.currentTarget.dataset.event;
+    if (!date || !eventInfo) return;
     
-    // 模拟节日详情
-    const events = {
-      '2025-09-10': {
-        title: '教师节',
-        date: '2025年9月10日',
-        description: '教师节是为教师设立的节日，旨在肯定教师为教育事业所做的贡献。'
-      },
-      '2025-09-15': {
-        title: '白露',
-        date: '2025年9月15日',
-        description: '白露是二十四节气中的第十五个节气，表示孟秋时节的结束和仲秋时节的开始。'
-      },
-      '2025-09-22': {
-        title: '秋分',
-        date: '2025年9月22日',
-        description: '秋分是二十四节气中的第十六个节气，昼夜平分，此后北半球昼短夜长。'
-      },
-      '2025-09-28': {
-        title: '孔子诞辰',
-        date: '2025年9月28日',
-        description: '孔子诞辰纪念日，纪念伟大的思想家、教育家孔子的诞生。'
-      }
+    // 设置节日详情
+    const eventDetail = {
+      title: `${eventInfo.nation} - ${eventInfo.festival}`,
+      date: `${this.data.currentYear}年${this.data.currentMonth}月${eventInfo.day}日`,
+      description: `这是${eventInfo.nation}的传统节日${eventInfo.festival}，体现了该民族独特的文化特色和传统习俗。`
     };
     
-    if (events[date]) {
-      this.setData({
-        selectedEvent: events[date]
-      });
-    }
+    this.setData({
+      selectedEvent: eventDetail
+    });
   },
 
   prevMonth: function() {

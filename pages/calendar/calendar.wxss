@@ -5,7 +5,7 @@
   box-sizing: border-box;
 }
 
-.calendar-header {
+.calendar-navigation {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -15,14 +15,23 @@
   margin-bottom: 20rpx;
 }
 
-.month-title {
+.nav-button {
+  background-color: #2196f3;
+  color: white;
+  border: none;
+  padding: 10rpx 20rpx;
+  border-radius: 10rpx;
+  font-size: 28rpx;
+}
+
+.nav-button:active {
+  background-color: #1976d2;
+}
+
+.month {
   font-size: 32rpx;
   font-weight: bold;
   color: #333;
-}
-
-.navigation icon {
-  margin: 0 10rpx;
 }
 
 .calendar-grid {
@@ -34,17 +43,18 @@
   margin-bottom: 30rpx;
 }
 
-.week-header {
+.weekdays {
   display: flex;
   width: 100%;
   margin-bottom: 10rpx;
 }
 
-.week-day {
+.weekday {
   flex: 1;
   text-align: center;
   font-size: 24rpx;
   color: #666;
+  font-weight: bold;
 }
 
 .calendar-day {
@@ -58,31 +68,34 @@
   align-items: center;
 }
 
+.calendar-day.today {
+  background-color: #e3f2fd;
+  border-radius: 10rpx;
+}
+
+.calendar-day.has-event {
+  background-color: #fce4ec;
+  border-radius: 10rpx;
+}
+
 .day-number {
   font-size: 28rpx;
   color: #333;
-}
-
-.today .day-number {
-  color: #1E90FF;
-  font-weight: bold;
-}
-
-.event-day .day-number {
-  color: #FF6B6B;
 }
 
 .event-marker {
   position: absolute;
   bottom: 5rpx;
   font-size: 20rpx;
-  color: #FF6B6B;
+  color: #f44336;
 }
 
+/* 节日详情显示区域 */
 .event-details {
   background-color: white;
   border-radius: 10rpx;
   padding: 30rpx;
+  margin-top: 20rpx;
 }
 
 .event-title {

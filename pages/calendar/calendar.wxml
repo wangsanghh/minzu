@@ -1,38 +1,45 @@
-<!-- 民族日历页面 -->
+<!-- 日历页面 -->
 <view class="container">
-  <view class="calendar-header">
-    <text class="month-title">2025年9月</text>
-    <view class="navigation">
-      <icon type="arrow-left" size="20" bindtap="prevMonth"></icon>
-      <icon type="arrow-right" size="20" bindtap="nextMonth"></icon>
-    </view>
+  <view class="header">
+    <text class="title">民族节日日历</text>
+  </view>
+  
+  <view class="calendar-navigation">
+    <button class="nav-button" bindtap="prevMonth">上一月</button>
+    <text class="month">{{currentYear}}年{{currentMonth}}月</text>
+    <button class="nav-button" bindtap="nextMonth">下一月</button>
+  </view>
+  
+  <view class="weekdays">
+    <text class="weekday">日</text>
+    <text class="weekday">一</text>
+    <text class="weekday">二</text>
+    <text class="weekday">三</text>
+    <text class="weekday">四</text>
+    <text class="weekday">五</text>
+    <text class="weekday">六</text>
   </view>
   
   <view class="calendar-grid">
-    <!-- 星期标题 -->
-    <view class="week-header">
-      <text class="week-day">日</text>
-      <text class="week-day">一</text>
-      <text class="week-day">二</text>
-      <text class="week-day">三</text>
-      <text class="week-day">四</text>
-      <text class="week-day">五</text>
-      <text class="week-day">六</text>
-    </view>
-    
-    <!-- 日期网格 -->
     <block wx:for="{{calendarDays}}" wx:key="index">
-      <view class="calendar-day {{item.isToday ? 'today' : ''}} {{item.hasEvent ? 'event-day' : ''}}" bindtap="onDayTap" data-date="{{item.date}}">
+      <view 
+        class="calendar-day {{item.isToday ? 'today' : ''}} {{item.hasEvent ? 'has-event' : ''}}" 
+        data-date="{{item.date}}"
+        data-event="{{item.eventInfo}}"
+        bindtap="onDayTap"
+      >
         <text class="day-number">{{item.day}}</text>
         <text class="event-marker" wx:if="{{item.hasEvent}}">●</text>
       </view>
     </block>
   </view>
   
-  <!-- 民族节日详情 -->
+  <!-- 节日详情显示区域 -->
   <view class="event-details" wx:if="{{selectedEvent}}">
     <text class="event-title">{{selectedEvent.title}}</text>
     <text class="event-date">{{selectedEvent.date}}</text>
     <text class="event-description">{{selectedEvent.description}}</text>
+  </view>
+</view>
   </view>
 </view>
