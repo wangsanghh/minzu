@@ -41,5 +41,3 @@
     <text class="event-description">{{selectedEvent.description}}</text>
   </view>
 </view>
-  </view>
-</view>
