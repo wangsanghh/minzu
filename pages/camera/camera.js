@@ -3,48 +3,6 @@ Page({
     result: null
   },
 
-  takePhoto: function() {
-    // 使用微信小程序的拍照功能
-    const ctx = wx.createCameraContext();
-    
-    ctx.takePhoto({
-      quality: 'high',
-      success: (res) => {
-        // 显示正在识别的提示
-        wx.showToast({
-          title: '正在识别中...',
-          icon: 'loading',
-          duration: 10000 // 设置较长的持续时间，直到识别完成
-        });
-        
-        // 将图片转换为base64
-        wx.getFileSystemManager().readFile({
-          filePath: res.tempImagePath,
-          encoding: 'base64',
-          success: (res) => {
-            // 调用百度AI图像识别API
-            this.callBaiduAI(res.data);
-          },
-          fail: (err) => {
-            wx.hideToast();
-            wx.showToast({
-              title: '图片处理失败',
-              icon: 'none'
-            });
-            console.error('图片处理失败', err);
-          }
-        });
-      },
-      fail: (err) => {
-        wx.showToast({
-          title: '拍照失败',
-          icon: 'none'
-        });
-        console.error('拍照失败', err);
-      }
-    });
-  },
-
   chooseImage: function() {
     // 从相册选择图片
     wx.chooseImage({
@@ -115,6 +73,10 @@ Page({
           content: err.message || '未知错误',
           showCancel: false
         });
+        // 重置处理状态
+        this.setData({
+          isProcessing: false
+        });
       });
   },
 
@@ -126,6 +88,10 @@ Page({
         icon: 'none'
       });
       console.error('识别结果为空:', data);
+      // 重置处理状态
+      this.setData({
+        isProcessing: false
+      });
       return;
     }
     
@@ -140,6 +106,11 @@ Page({
     wx.showToast({
       title: '识别完成',
       icon: 'success'
+    });
+    
+    // 重置处理状态
+    this.setData({
+      isProcessing: false
     });
   },
 
@@ -229,6 +200,7 @@ Page({
   },
 
   onLoad: function() {
-    // 页面加载时的初始化逻辑
+    // 页面加载时的初始化操作
+    console.log('Camera page loaded');
   }
 });
