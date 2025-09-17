@@ -118,3 +118,69 @@
   color: #333;
   line-height: 1.5;
 }
+
+.detail-button {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 15rpx 30rpx;
+  border-radius: 10rpx;
+  font-size: 28rpx;
+  margin-top: 20rpx;
+}
+
+.detail-button:active {
+  background-color: #45a049;
+}
+
+.detail-button[disabled] {
+  background-color: #cccccc;
+  color: #666666;
+}
+
+.event-detail {
+  font-size: 26rpx;
+  color: #444;
+  line-height: 1.6;
+  margin-top: 20rpx;
+  padding: 20rpx;
+  background-color: #f9f9f9;
+  border-radius: 10rpx;
+}
+
+.loading {
+  text-align: center;
+  padding: 30rpx 0;
+}
+
+.loading-text {
+  font-size: 28rpx;
+  color: #666;
+}
+
+.festival-detail-container {
+  margin-top: 30rpx;
+}
+
+.detail-section {
+  margin-bottom: 30rpx;
+  padding: 20rpx;
+  background-color: #f9f9f9;
+  border-radius: 10rpx;
+}
+
+.section-title {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #1E90FF;
+  display: block;
+  margin-bottom: 15rpx;
+  padding-bottom: 10rpx;
+  border-bottom: 1rpx solid #eee;
+}
+
+.section-content {
+  font-size: 26rpx;
+  color: #444;
+  line-height: 1.6;
+}
