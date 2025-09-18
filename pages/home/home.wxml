@@ -2,7 +2,7 @@
 <view class="container">
   <!-- 顶部导航栏 -->
   <view class="nav-bar">
-    <text class="nav-title">智能民族宝库</text>
+    <text class="nav-title">文枢智伴</text>
   </view>
 
   <!-- 搜索框 -->

@@ -2,7 +2,6 @@
 <view class="container">
   <!-- 欢迎区域 -->
   <view class="welcome-section">
-    <view class="welcome-title">民族智能小助手</view>
     <view class="welcome-subtitle">探索中国56个民族的文化瑰宝</view>
   </view>
   

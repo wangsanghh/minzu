@@ -12,7 +12,7 @@
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#1E90FF",
-    "navigationBarTitleText": "智能民族宝库",
+    "navigationBarTitleText": "文枢智伴",
     "navigationBarTextStyle": "white"
   },
   "tabBar": {
@@ -35,7 +35,7 @@
       },
       {
         "pagePath": "pages/assistant/assistant",
-        "text": "智能民族助手",
+        "text": "小民助手",
         "iconPath": "icons/ai.png",
         "selectedIconPath": "icons/assistant.png"
       },
