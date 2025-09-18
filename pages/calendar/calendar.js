@@ -8,60 +8,178 @@ Page({
     isLoading: false,
     currentMonth: new Date().getMonth() + 1,
     currentYear: new Date().getFullYear(),
-    // 民族节日数据，按月份分类
+    // 56个民族节日数据，按月份分类
     ethnicFestivals: {
       1: [
         { day: 1, nation: '汉族', festival: '元旦' },
+        { day: 6, nation: '藏族', festival: '色拉崩钦节' },
+        { day: 8, nation: '壮族', festival: '开耕节' },
+        { day: 10, nation: '白族', festival: '三朵节' },
+        { day: 12, nation: '傣族', festival: '做摆' },
         { day: 15, nation: '汉族', festival: '元宵节' },
-        { day: 20, nation: '彝族', festival: '彝族年' }
+        { day: 16, nation: '苗族', festival: '踩山节' },
+        { day: 18, nation: '瑶族', festival: '达努节' },
+        { day: 20, nation: '彝族', festival: '彝族年' },
+        { day: 22, nation: '朝鲜族', festival: '老人节' },
+        { day: 25, nation: '纳西族', festival: '三朵节' },
+        { day: 28, nation: '哈尼族', festival: '昂玛突节' }
       ],
       2: [
         { day: 2, nation: '汉族', festival: '龙抬头' },
-        { day: 19, nation: '纳西族', festival: '棒棒会' }
+        { day: 5, nation: '藏族', festival: '燃灯节' },
+        { day: 8, nation: '白族', festival: '耍海会' },
+        { day: 10, nation: '傈僳族', festival: '刀杆节' },
+        { day: 12, nation: '布朗族', festival: '桑康节' },
+        { day: 15, nation: '蒙古族', festival: '白节' },
+        { day: 18, nation: '侗族', festival: '萨玛节' },
+        { day: 19, nation: '纳西族', festival: '棒棒会' },
+        { day: 22, nation: '土族', festival: '二月二会' },
+        { day: 25, nation: '佤族', festival: '播种节' },
+        { day: 28, nation: '德昂族', festival: '浇花节' }
       ],
       3: [
         { day: 3, nation: '壮族', festival: '三月三歌节' },
-        { day: 15, nation: '白族', festival: '三月街' }
+        { day: 5, nation: '苗族', festival: '姊妹节' },
+        { day: 8, nation: '京族', festival: '哈节' },
+        { day: 10, nation: '水族', festival: '端节' },
+        { day: 12, nation: '满族', festival: '添仓节' },
+        { day: 15, nation: '白族', festival: '三月街' },
+        { day: 18, nation: '黎族', festival: '三月三节' },
+        { day: 20, nation: '仫佬族', festival: '走坡节' },
+        { day: 22, nation: '毛南族', festival: '分龙节' },
+        { day: 25, nation: '畲族', festival: '三月三节' },
+        { day: 28, nation: '土家族', festival: '女儿会' },
+        { day: 30, nation: '羌族', festival: '祭山会' }
       ],
       4: [
+        { day: 2, nation: '鄂伦春族', festival: '春节' },
+        { day: 5, nation: '赫哲族', festival: '乌日贡节' },
+        { day: 8, nation: '鄂温克族', festival: '瑟宾节' },
         { day: 10, nation: '傣族', festival: '泼水节' },
+        { day: 12, nation: '普米族', festival: '大过年' },
         { day: 15, nation: '藏族', festival: '萨嘎达瓦节' },
-        { day: 22, nation: '蒙古族', festival: '马奶节' }
+        { day: 18, nation: '珞巴族', festival: '旭独龙节' },
+        { day: 20, nation: '门巴族', festival: '莫确节' },
+        { day: 22, nation: '蒙古族', festival: '马奶节' },
+        { day: 25, nation: '保安族', festival: '圣纪节' },
+        { day: 28, nation: '东乡族', festival: '开斋节' },
+        { day: 30, nation: '撒拉族', festival: '古尔邦节' }
       ],
       5: [
+        { day: 3, nation: '塔吉克族', festival: '引水节' },
         { day: 5, nation: '汉族', festival: '端午节' },
-        { day: 22, nation: '苗族', festival: '苗年节' }
+        { day: 8, nation: '塔塔尔族', festival: '撒班节' },
+        { day: 10, nation: '乌孜别克族', festival: '肉孜节' },
+        { day: 12, nation: '柯尔克孜族', festival: '库里克节' },
+        { day: 15, nation: '维吾尔族', festival: '古尔邦节' },
+        { day: 18, nation: '哈萨克族', festival: '诺鲁孜节' },
+        { day: 20, nation: '俄罗斯族', festival: '复活节' },
+        { day: 22, nation: '苗族', festival: '苗年节' },
+        { day: 25, nation: '独龙族', festival: '卡雀哇节' },
+        { day: 28, nation: '怒族', festival: '仙女节' },
+        { day: 30, nation: '阿昌族', festival: '窝罗节' }
       ],
       6: [
+        { day: 2, nation: '基诺族', festival: '特懋克节' },
+        { day: 5, nation: '布依族', festival: '六月六' },
         { day: 6, nation: '汉族', festival: '天贶节' },
+        { day: 8, nation: '拉祜族', festival: '库扎节' },
+        { day: 10, nation: '景颇族', festival: '目瑙纵歌节' },
+        { day: 12, nation: '仡佬族', festival: '吃新节' },
+        { day: 15, nation: '回族', festival: '开斋节' },
+        { day: 18, nation: '达斡尔族', festival: '库莫尔节' },
+        { day: 20, nation: '锡伯族', festival: '西迁节' },
+        { day: 22, nation: '高山族', festival: '丰年节' },
         { day: 24, nation: '彝族', festival: '火把节' },
-        { day: 25, nation: '哈尼族', festival: '矻扎扎节' }
+        { day: 25, nation: '哈尼族', festival: '矻扎扎节' },
+        { day: 28, nation: '乌孜别克族', festival: '古尔邦节' }
       ],
       7: [
+        { day: 2, nation: '塔吉克族', festival: '肖贡巴哈尔节' },
+        { day: 5, nation: '裕固族', festival: '马背上的节日' },
         { day: 7, nation: '汉族', festival: '七夕节' },
-        { day: 15, nation: '京族', festival: '唱哈节' }
+        { day: 10, nation: '塔塔尔族', festival: '古尔邦节' },
+        { day: 12, nation: '柯尔克孜族', festival: '马奶节' },
+        { day: 15, nation: '京族', festival: '唱哈节' },
+        { day: 18, nation: '维吾尔族', festival: '肉孜节' },
+        { day: 20, nation: '哈萨克族', festival: '古尔邦节' },
+        { day: 22, nation: '俄罗斯族', festival: '伊万·库帕拉节' },
+        { day: 25, nation: '鄂伦春族', festival: '篝火节' },
+        { day: 28, nation: '赫哲族', festival: '河灯节' },
+        { day: 30, nation: '鄂温克族', festival: '敖包节' }
       ],
       8: [
+        { day: 2, nation: '普米族', festival: '转山节' },
+        { day: 5, nation: '珞巴族', festival: '望果节' },
+        { day: 8, nation: '门巴族', festival: '萨嘎达瓦节' },
+        { day: 10, nation: '保安族', festival: '古尔邦节' },
+        { day: 12, nation: '东乡族', festival: '古尔邦节' },
         { day: 15, nation: '汉族', festival: '中秋节' },
-        { day: 20, nation: '傈僳族', festival: '刀杆节' }
+        { day: 18, nation: '撒拉族', festival: '开斋节' },
+        { day: 20, nation: '傈僳族', festival: '刀杆节' },
+        { day: 22, nation: '独龙族', festival: '德昂族节' },
+        { day: 25, nation: '怒族', festival: '鲜花节' },
+        { day: 28, nation: '阿昌族', festival: '会街节' },
+        { day: 30, nation: '基诺族', festival: '打铁节' }
       ],
       9: [
+        { day: 2, nation: '拉祜族', festival: '拉祜扩节' },
+        { day: 5, nation: '景颇族', festival: '新米节' },
+        { day: 8, nation: '仡佬族', festival: '牛王节' },
         { day: 9, nation: '汉族', festival: '重阳节' },
-        { day: 19, nation: '仡佬族', festival: '仡佬节' }
+        { day: 12, nation: '达斡尔族', festival: '斡包节' },
+        { day: 15, nation: '锡伯族', festival: '抹黑节' },
+        { day: 18, nation: '高山族', festival: '赛夏节' },
+        { day: 19, nation: '仡佬族', festival: '仡佬节' },
+        { day: 22, nation: '裕固族', festival: '燃灯节' },
+        { day: 25, nation: '塔吉克族', festival: '肖贡节' },
+        { day: 28, nation: '塔塔尔族', festival: '开斋节' },
+        { day: 30, nation: '柯尔克孜族', festival: '古尔邦节' }
       ],
       10: [
         { day: 1, nation: '汉族', festival: '国庆节' },
-        { day: 15, nation: '德昂族', festival: '关门节' }
+        { day: 3, nation: '维吾尔族', festival: '葡萄节' },
+        { day: 5, nation: '哈萨克族', festival: '阿肯弹唱会' },
+        { day: 8, nation: '俄罗斯族', festival: '谢肉节' },
+        { day: 10, nation: '鄂伦春族', festival: '丰收节' },
+        { day: 12, nation: '赫哲族', festival: '鹿神节' },
+        { day: 15, nation: '德昂族', festival: '关门节' },
+        { day: 18, nation: '鄂温克族', festival: '米阔鲁节' },
+        { day: 20, nation: '普米族', festival: '吾昔节' },
+        { day: 22, nation: '珞巴族', festival: '昂德林节' },
+        { day: 25, nation: '门巴族', festival: '丰收节' },
+        { day: 28, nation: '保安族', festival: '开斋节' },
+        { day: 30, nation: '东乡族', festival: '宰牲节' }
       ],
       11: [
         { day: 1, nation: '蒙古族', festival: '白节' },
+        { day: 3, nation: '撒拉族', festival: '圣纪节' },
+        { day: 5, nation: '独龙族', festival: '卡江瓦节' },
+        { day: 8, nation: '怒族', festival: '如美节' },
+        { day: 10, nation: '阿昌族', festival: '阿露窝罗节' },
         { day: 11, nation: '苗族', festival: '苗年节' },
-        { day: 22, nation: '侗族', festival: '侗年' }
+        { day: 12, nation: '基诺族', festival: '火把节' },
+        { day: 15, nation: '拉祜族', festival: '葫芦节' },
+        { day: 18, nation: '景颇族', festival: '能仙节' },
+        { day: 20, nation: '仡佬族', festival: '敬祖节' },
+        { day: 22, nation: '侗族', festival: '侗年' },
+        { day: 25, nation: '达斡尔族', festival: '黑灰节' },
+        { day: 28, nation: '锡伯族', festival: '颁金节' }
       ],
       12: [
+        { day: 2, nation: '高山族', festival: '矮灵祭' },
+        { day: 5, nation: '裕固族', festival: '剪马鬃节' },
+        { day: 8, nation: '塔吉克族', festival: '巴罗提节' },
         { day: 10, nation: '回族', festival: '古尔邦节' },
+        { day: 12, nation: '塔塔尔族', festival: '撒班节' },
+        { day: 15, nation: '柯尔克孜族', festival: '诺鲁孜节' },
+        { day: 18, nation: '维吾尔族', festival: '开斋节' },
+        { day: 20, nation: '哈萨克族', festival: '纳吾肉孜节' },
+        { day: 22, nation: '俄罗斯族', festival: '圣诞节' },
         { day: 25, nation: '汉族', festival: '圣诞节' },
-        { day: 29, nation: '藏族', festival: '藏历新年' }
+        { day: 28, nation: '鄂伦春族', festival: '涂颜节' },
+        { day: 29, nation: '藏族', festival: '藏历新年' },
+        { day: 30, nation: '赫哲族', festival: '鱼皮节' }
       ]
     }
   },
