@@ -23,23 +23,33 @@
     "list": [
       {
         "pagePath": "pages/home/home",
-        "text": "首页"
+        "text": "首页",
+        "iconPath": "icons/home.png",
+        "selectedIconPath": "icons/home1.png"
       },
       {
         "pagePath": "pages/camera/camera",
-        "text": "拍照识别"
+        "text": "拍照识别",
+        "iconPath": "icons/闭眼睛.png",
+        "selectedIconPath": "icons/camera.png"
       },
       {
         "pagePath": "pages/assistant/assistant",
-        "text": "智能民族助手"
+        "text": "智能民族助手",
+        "iconPath": "icons/ai.png",
+        "selectedIconPath": "icons/assistant.png"
       },
       {
         "pagePath": "pages/calendar/calendar",
-        "text": "民族日历"
+        "text": "民族日历",
+        "iconPath": "icons/日历.png",
+        "selectedIconPath": "icons/日历1.png"
       },
       {
         "pagePath": "pages/knowledge/knowledge",
-        "text": "民族冷知识"
+        "text": "民族冷知识",
+        "iconPath": "icons/冷知识.png",
+        "selectedIconPath": "icons/knowledge.png"
       }
     ]
   },
