@@ -80,11 +80,10 @@ Page({
 
   onNationTap: function(e) {
     const nationId = e.currentTarget.dataset.id;
-    wx.showToast({
-      title: '点击了民族ID: ' + nationId,
-      icon: 'none'
+    // 跳转到民族详情页面
+    wx.navigateTo({
+      url: '../nationDetail/nationDetail?id=' + nationId
     });
-    // 这里可以跳转到民族详情页面
   },
 
   onLoad: function() {

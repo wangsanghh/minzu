@@ -1,0 +1,48 @@
+<!-- 民族详情页面 -->
+<view class="container">
+  <!-- 民族基本信息 -->
+  <view class="nation-header">
+    <image class="nation-icon" src="{{nation.icon}}" mode="aspectFit"></image>
+    <text class="nation-name">{{nation.name}}</text>
+  </view>
+
+  <!-- 民族介绍 -->
+  <view class="section">
+    <view class="section-title">民族介绍</view>
+    <view class="section-content">
+      <text>{{nation.introduction}}</text>
+    </view>
+  </view>
+
+  <!-- 民族美食 -->
+  <view class="section">
+    <view class="section-title">民族美食</view>
+    <view class="section-content">
+      <text>{{nation.food}}</text>
+    </view>
+  </view>
+
+  <!-- 民族文化 -->
+  <view class="section">
+    <view class="section-title">民族文化</view>
+    <view class="section-content">
+      <text>{{nation.culture}}</text>
+    </view>
+  </view>
+
+  <!-- 民族风俗 -->
+  <view class="section">
+    <view class="section-title">民族风俗</view>
+    <view class="section-content">
+      <text>{{nation.customs}}</text>
+    </view>
+  </view>
+
+  <!-- 民族乐器 -->
+  <view class="section">
+    <view class="section-title">民族乐器</view>
+    <view class="section-content">
+      <text>{{nation.instruments}}</text>
+    </view>
+  </view>
+</view>

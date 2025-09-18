@@ -114,9 +114,8 @@ Page({
     // 保存到历史记录
     this.saveToHistory(nationInfo);
     
-    // 只显示识别的民族名称
     wx.showToast({
-      title: nationInfo.nation,
+      title: '识别完成',
       icon: 'success'
     });
     
@@ -127,7 +126,8 @@ Page({
   },
 
   extractNationInfo: function(results) {
-    // 简化处理：只查找民族名称
+    // 这里需要根据实际的识别结果来提取民族服饰信息
+    // 简化处理：查找包含"民族"、"服饰"、"服装"等关键词的结果
     let nationName = '未知民族';
     let confidence = 0;
     let image = '../../images/nation/10.png'; // 默认图片

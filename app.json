@@ -1,6 +1,7 @@
 {
   "pages": [
     "pages/home/home",
+    "pages/nationDetail/nationDetail",
     "pages/camera/camera",
     "pages/calendar/calendar",
     "pages/knowledge/knowledge",
