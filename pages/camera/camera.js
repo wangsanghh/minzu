@@ -1,6 +1,9 @@
 Page({
   data: {
-    result: null
+    result: null,
+    uploadedImage: null, // 添加上传图片的路径
+    historyRecords: [], // 历史记录
+    showHistory: false // 是否显示历史记录
   },
 
   chooseImage: function() {
@@ -19,6 +22,11 @@ Page({
         
         // 获取选择的图片路径
         const tempFilePath = res.tempFilePaths[0];
+        
+        // 保存上传的图片路径
+        this.setData({
+          uploadedImage: tempFilePath
+        });
         
         // 将图片转换为base64
         wx.getFileSystemManager().readFile({
@@ -102,6 +110,9 @@ Page({
     this.setData({
       result: nationInfo
     });
+    
+    // 保存到历史记录
+    this.saveToHistory(nationInfo);
     
     wx.showToast({
       title: '识别完成',
@@ -202,5 +213,111 @@ Page({
   onLoad: function() {
     // 页面加载时的初始化操作
     console.log('Camera page loaded');
+    // 加载历史记录
+    this.loadHistoryRecords();
+  },
+
+  // 保存识别结果到历史记录
+  saveToHistory: function(nationInfo) {
+    const currentTime = new Date();
+    const historyItem = {
+      id: Date.now(), // 使用时间戳作为ID
+      image: this.data.uploadedImage, // 保存上传的图片路径
+      nation: nationInfo.nation,
+      confidence: nationInfo.confidence,
+      time: currentTime.toLocaleString('zh-CN', {
+        year: 'numeric',
+        month: '2-digit',
+        day: '2-digit',
+        hour: '2-digit',
+        minute: '2-digit'
+      })
+    };
+
+    // 获取现有历史记录
+    let historyRecords = wx.getStorageSync('recognitionHistory') || [];
+    
+    // 将新记录添加到数组开头（最新的在前面）
+    historyRecords.unshift(historyItem);
+    
+    // 限制历史记录数量，最多保存20条
+    if (historyRecords.length > 20) {
+      historyRecords = historyRecords.slice(0, 20);
+    }
+    
+    // 保存到本地存储
+    try {
+      wx.setStorageSync('recognitionHistory', historyRecords);
+      // 更新页面数据
+      this.setData({
+        historyRecords: historyRecords
+      });
+    } catch (error) {
+      console.error('保存历史记录失败:', error);
+    }
+  },
+
+  // 加载历史记录
+  loadHistoryRecords: function() {
+    try {
+      const historyRecords = wx.getStorageSync('recognitionHistory') || [];
+      this.setData({
+        historyRecords: historyRecords
+      });
+    } catch (error) {
+      console.error('加载历史记录失败:', error);
+    }
+  },
+
+  // 切换历史记录显示状态
+  toggleHistory: function() {
+    this.setData({
+      showHistory: !this.data.showHistory
+    });
+  },
+
+  // 点击历史记录项
+  onHistoryItemTap: function(e) {
+    const index = e.currentTarget.dataset.index;
+    const historyItem = this.data.historyRecords[index];
+    
+    // 设置为当前显示的结果
+    this.setData({
+      uploadedImage: historyItem.image,
+      result: {
+        nation: historyItem.nation,
+        confidence: historyItem.confidence
+      },
+      showHistory: false // 关闭历史记录面板
+    });
+  },
+
+  // 清除所有历史记录
+  clearHistory: function() {
+    wx.showModal({
+      title: '确认清除',
+      content: '是否清除所有历史记录？此操作不可恢复。',
+      success: (res) => {
+        if (res.confirm) {
+          try {
+            wx.removeStorageSync('recognitionHistory');
+            this.setData({
+              historyRecords: [],
+              showHistory: false
+            });
+            wx.showToast({
+              title: '已清除历史记录',
+              icon: 'success'
+            });
+          } catch (error) {
+            console.error('清除历史记录失败:', error);
+            wx.showToast({
+              title: '清除失败',
+              icon: 'none'
+            });
+          }
+        }
+      }
+    });
   }
 });
