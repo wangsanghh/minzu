@@ -128,7 +128,6 @@ Page({
     const eventDetail = {
       title: `${eventInfo.nation} - ${eventInfo.festival}`,
       date: `${this.data.currentYear}年${this.data.currentMonth}月${eventInfo.day}日`,
-      description: `这是${eventInfo.nation}的传统节日${eventInfo.festival}，体现了该民族独特的文化特色和传统习俗。`,
       nation: eventInfo.nation,
       festival: eventInfo.festival
     };
