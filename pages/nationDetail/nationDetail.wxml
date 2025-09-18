@@ -1,5 +1,5 @@
 <!-- 民族详情页面 -->
-<view class="container">
+<scroll-view class="container" scroll-y="true" enhanced="{{true}}" show-scrollbar="{{false}}">
   <!-- 顶部导航栏 -->
   <view class="nav-bar">
     <navigator class="back-button" open-type="navigateBack">
@@ -16,48 +16,52 @@
     </view>
   </view>
 
-  <!-- 民族介绍 -->
-  <view class="section">
-    <view class="section-title">民族介绍</view>
-    <view class="section-content">
-      <text>{{nation.introduction}}</text>
+  <!-- 内容区域 -->
+  <view class="content-wrapper">
+    <!-- 民族介绍 -->
+    <view class="section">
+      <view class="section-title">民族介绍</view>
+      <view class="section-content">
+        <text class="content-text">{{nation.introduction}}</text>
+      </view>
+    </view>
+
+    <!-- 民族美食 -->
+    <view class="section">
+      <view class="section-title">民族美食</view>
+      <view class="section-content">
+        <text class="content-text">{{nation.food}}</text>
+      </view>
+    </view>
+
+    <!-- 民族文化 -->
+    <view class="section">
+      <view class="section-title">民族文化</view>
+      <view class="section-content">
+        <text class="content-text">{{nation.culture}}</text>
+      </view>
+    </view>
+
+    <!-- 民族风俗 -->
+    <view class="section">
+      <view class="section-title">民族风俗</view>
+      <view class="section-content">
+        <text class="content-text">{{nation.customs}}</text>
+      </view>
+    </view>
+
+    <!-- 民族乐器 -->
+    <view class="section">
+      <view class="section-title">民族乐器</view>
+      <view class="section-content">
+        <text class="content-text">{{nation.instruments}}</text>
+      </view>
+    </view>
+
+    <!-- 获取更详细信息按钮 -->
+    <view class="deep-detail-button" bindtap="onDeepDetailTap">
+      <text class="button-text">获取更详细信息</text>
+      <view class="button-icon">📖</view>
     </view>
   </view>
-
-  <!-- 民族美食 -->
-  <view class="section">
-    <view class="section-title">民族美食</view>
-    <view class="section-content">
-      <text>{{nation.food}}</text>
-    </view>
-  </view>
-
-  <!-- 民族文化 -->
-  <view class="section">
-    <view class="section-title">民族文化</view>
-    <view class="section-content">
-      <text>{{nation.culture}}</text>
-    </view>
-  </view>
-
-  <!-- 民族风俗 -->
-  <view class="section">
-    <view class="section-title">民族风俗</view>
-    <view class="section-content">
-      <text>{{nation.customs}}</text>
-    </view>
-  </view>
-
-  <!-- 民族乐器 -->
-  <view class="section">
-    <view class="section-title">民族乐器</view>
-    <view class="section-content">
-      <text>{{nation.instruments}}</text>
-    </view>
-  </view>
-
-  <!-- 获取更详细信息按钮 -->
-  <view class="deep-detail-button" bindtap="onDeepDetailTap">
-    <text class="button-text">获取更详细信息</text>
-  </view>
-</view>
+</scroll-view>

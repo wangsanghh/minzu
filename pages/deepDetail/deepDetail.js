@@ -14,8 +14,7 @@ Page({
     this.setData({
       nation: {
         id: nationId,
-        name: nationName,
-        icon: `../../images/nation/${nationId}.png`
+        name: nationName
       }
     });
     

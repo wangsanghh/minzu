@@ -1,5 +1,5 @@
 <!-- 深度详情页面 -->
-<view class="container">
+<scroll-view class="container" scroll-y="true" enhanced="{{true}}" show-scrollbar="{{false}}">
   <!-- 顶部导航栏 -->
   <view class="nav-bar">
     <navigator class="back-button" open-type="navigateBack">
@@ -12,7 +12,7 @@
     <text>正在获取详细信息...</text>
   </view>
   
-  <view wx:else>
+  <view class="content-wrapper" wx:else>
     <!-- 民族基本信息 -->
     <view class="nation-header">
       <view class="nation-header-content">
@@ -25,8 +25,8 @@
     <view class="section" wx:for="{{detailSections}}" wx:key="title">
       <view class="section-title">{{item.title}}</view>
       <view class="section-content">
-        <text>{{item.content}}</text>
+        <text class="content-text">{{item.content}}</text>
       </view>
     </view>
   </view>
-</view>
+</scroll-view>

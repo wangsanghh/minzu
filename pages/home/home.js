@@ -1,7 +1,7 @@
 Page({
   data: {
     searchValue: '',
-    nations: [
+    allNations: [
       { id: 1, name: '汉族', icon: '../../images/nation/1.png' },
       { id: 2, name: '壮族', icon: '../../images/nation/2.png' },
       { id: 3, name: '满族', icon: '../../images/nation/3.png' },
@@ -58,24 +58,44 @@ Page({
       { id: 54, name: '塔塔尔族', icon: '../../images/nation/54.png' },
       { id: 55, name: '赫哲族', icon: '../../images/nation/55.png' },
       { id: 56, name: '珞巴族', icon: '../../images/nation/56.png' }
-    ]
+    ],
+    nations: [],
+    searchResults: []
   },
 
   onSearchInput: function(e) {
+    const searchValue = e.detail.value;
     this.setData({
-      searchValue: e.detail.value
+      searchValue: searchValue
     });
+    
+    // 实时搜索
+    this.performSearch(searchValue);
   },
 
   onSearchConfirm: function(e) {
-    const searchValue = e.detail.value;
-    if (searchValue) {
-      wx.showToast({
-        title: '搜索: ' + searchValue,
-        icon: 'none'
+    const searchValue = e.detail.value || this.data.searchValue;
+    this.performSearch(searchValue);
+  },
+
+  performSearch: function(searchValue) {
+    if (!searchValue) {
+      // 如果搜索框为空，清空搜索结果，但保持nations为所有民族
+      this.setData({
+        searchResults: []
       });
-      // 这里可以添加实际的搜索逻辑
+      return;
     }
+
+    // 根据搜索内容过滤民族
+    const filteredNations = this.data.allNations.filter(nation => {
+      return nation.name.includes(searchValue);
+    });
+
+    // 更新搜索结果
+    this.setData({
+      searchResults: filteredNations
+    });
   },
 
   onNationTap: function(e) {
@@ -88,5 +108,8 @@ Page({
 
   onLoad: function() {
     // 页面加载时的初始化逻辑
+    this.setData({
+      nations: this.data.allNations
+    });
   }
 });

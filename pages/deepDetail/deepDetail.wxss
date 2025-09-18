@@ -1,8 +1,24 @@
 .container {
+  height: 100vh;
   background: linear-gradient(135deg, #f5f7fa 0%, #e4edf5 100%);
-  min-height: 100vh;
-  padding: 0;
-  box-sizing: border-box;
+}
+
+/* 内容包装器 */
+.content-wrapper {
+  padding: 0 0 30rpx 0;
+}
+
+/* 文本内容优化 */
+.content-text {
+  display: block;
+  font-size: 30rpx;
+  color: #333333;
+  line-height: 1.8;
+  text-align: justify;
+  word-wrap: break-word;
+  word-break: break-all;
+  white-space: pre-wrap;
+  letter-spacing: 0.5rpx;
 }
 
 /* 顶部导航栏 */
@@ -115,8 +131,9 @@
   margin: 20rpx;
   box-shadow: 0 6rpx 16rpx rgba(0, 0, 0, 0.1);
   position: relative;
-  overflow: hidden;
+  overflow: visible;
   transition: all 0.3s ease;
+  min-height: auto;
 }
 
 .section:hover {
@@ -152,7 +169,14 @@
 
 .section-content {
   font-size: 30rpx;
-  color: #4A5568;
+  color: #333333;
   line-height: 1.8;
   text-align: justify;
+  word-wrap: break-word;
+  word-break: break-all;
+  white-space: normal;
+  padding: 10rpx 0;
+  max-height: none;
+  overflow: visible;
+  display: block;
 }

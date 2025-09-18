@@ -19,18 +19,36 @@
     </view>
   </view>
 
-  <!-- 民族分类标题 -->
-  <view class="section-title">
-    <text>中华民族大家庭</text>
-  </view>
-
-  <!-- 民族模块网格 -->
-  <view class="nation-grid">
-    <block wx:for="{{nations}}" wx:key="id">
-      <view class="nation-item" bindtap="onNationTap" data-id="{{item.id}}">
-        <image class="nation-icon" src="{{item.icon}}" mode="aspectFit"></image>
-        <text class="nation-name">{{item.name}}</text>
-      </view>
-    </block>
-  </view>
+  <!-- 民族分类标题和网格 或 搜索结果标题和网格 -->
+  <block wx:if="{{searchResults.length > 0}}">
+    <!-- 搜索结果标题 -->
+    <view class="section-title search-result-title">
+      <text>搜索结果</text>
+    </view>
+    
+    <!-- 搜索结果网格 -->
+    <view class="nation-grid">
+      <block wx:for="{{searchResults}}" wx:key="id">
+        <view class="nation-item" bindtap="onNationTap" data-id="{{item.id}}">
+          <text class="nation-name">{{item.name}}</text>
+        </view>
+      </block>
+    </view>
+  </block>
+  
+  <block wx:else>
+    <!-- 民族分类标题 -->
+    <view class="section-title">
+      <text>中华民族大家庭</text>
+    </view>
+    
+    <!-- 民族模块网格 -->
+    <view class="nation-grid">
+      <block wx:for="{{nations}}" wx:key="id">
+        <view class="nation-item" bindtap="onNationTap" data-id="{{item.id}}">
+          <text class="nation-name">{{item.name}}</text>
+        </view>
+      </block>
+    </view>
+  </block>
 </view>
