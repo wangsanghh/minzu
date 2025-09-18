@@ -2,6 +2,7 @@
   "pages": [
     "pages/home/home",
     "pages/nationDetail/nationDetail",
+    "pages/deepDetail/deepDetail",
     "pages/camera/camera",
     "pages/calendar/calendar",
     "pages/knowledge/knowledge",
@@ -30,7 +31,7 @@
       },
       {
         "pagePath": "pages/assistant/assistant",
-        "text": "智能助手"
+        "text": "智能民族助手"
       },
       {
         "pagePath": "pages/calendar/calendar",

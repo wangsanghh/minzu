@@ -593,5 +593,13 @@ Page({
     this.setData({
       nation: nation
     });
+  },
+
+  // 跳转到深度详情页面
+  onDeepDetailTap: function() {
+    const nation = this.data.nation;
+    wx.navigateTo({
+      url: '../deepDetail/deepDetail?id=' + nation.id + '&name=' + nation.name
+    });
   }
 });

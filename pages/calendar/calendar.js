@@ -1,5 +1,9 @@
 Page({
   data: {
+  
+  navigateBack: function() {
+    wx.navigateBack();
+  },
     calendarDays: [],
     selectedEvent: null,
     festivalDetail: null,

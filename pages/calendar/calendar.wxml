@@ -1,7 +1,18 @@
 <!-- 日历页面 -->
 <view class="container">
+  <!-- 顶部导航栏 -->
+  <view class="nav-bar">
+    <view class="nav-back">
+      <button class="back-button" bindtap="navigateBack">
+        <icon type="arrow-left" size="20" color="white"/>
+      </button>
+    </view>
+    <text class="nav-title">中华民族节日日历</text>
+    <view style="width: 40rpx;"></view> <!-- 用于保持标题居中 -->
+  </view>
+  
   <view class="header">
-    <text class="title">民族节日日历</text>
+    <text class="title">中华民族节日日历</text>
   </view>
   
   <view class="calendar-navigation">

@@ -1,0 +1,32 @@
+<!-- 深度详情页面 -->
+<view class="container">
+  <!-- 顶部导航栏 -->
+  <view class="nav-bar">
+    <navigator class="back-button" open-type="navigateBack">
+      <icon type="arrow-left" size="20" color="white"></icon>
+    </navigator>
+    <text class="nav-title">{{nation.name}}深度详情</text>
+  </view>
+
+  <view class="loading" wx:if="{{loading}}">
+    <text>正在获取详细信息...</text>
+  </view>
+  
+  <view wx:else>
+    <!-- 民族基本信息 -->
+    <view class="nation-header">
+      <view class="nation-header-content">
+        <image class="nation-icon" src="{{nation.icon}}" mode="aspectFit"></image>
+        <text class="nation-name">{{nation.name}}</text>
+      </view>
+    </view>
+
+    <!-- 深度详情内容 -->
+    <view class="section" wx:for="{{detailSections}}" wx:key="title">
+      <view class="section-title">{{item.title}}</view>
+      <view class="section-content">
+        <text>{{item.content}}</text>
+      </view>
+    </view>
+  </view>
+</view>
