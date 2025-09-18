@@ -10,11 +10,7 @@
     <text class="nav-title">中华民族节日日历</text>
     <view style="width: 40rpx;"></view> <!-- 用于保持标题居中 -->
   </view>
-  
-  <view class="header">
-    <text class="title">中华民族节日日历</text>
-  </view>
-  
+
   <view class="calendar-navigation">
     <button class="nav-button" bindtap="prevMonth">上一月</button>
     <text class="month">{{currentYear}}年{{currentMonth}}月</text>

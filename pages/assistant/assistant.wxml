@@ -1,20 +1,44 @@
 <!-- pages/assistant/assistant.wxml -->
 <view class="container">
+  <!-- 欢迎区域 -->
+  <view class="welcome-section">
+    <view class="welcome-title">民族智能小助手</view>
+    <view class="welcome-subtitle">探索中国56个民族的文化瑰宝</view>
+  </view>
+  
   <!-- 聊天区域 -->
   <scroll-view class="chat-container" scroll-y="true">
     <block wx:for="{{messages}}" wx:key="id">
       <view class="message {{item.isUser ? 'user-message' : 'ai-message'}}">
-        <view class="message-content">
-          <text class="message-text">{{item.text}}</text>
-          <text class="message-time">{{item.time}}</text>
+        <!-- AI头像 -->
+        <view class="avatar ai-avatar" wx:if="{{!item.isUser}}">
+          <text class="avatar-text">民</text>
+        </view>
+        
+        <!-- 消息气泡 -->
+        <view class="message-bubble {{item.isUser ? 'user-bubble' : 'ai-bubble'}}">
+          <view class="message-content">
+            <text class="message-text">{{item.text}}</text>
+            <text class="message-time">{{item.time}}</text>
+          </view>
+        </view>
+        
+        <!-- 用户头像 -->
+        <view class="avatar user-avatar" wx:if="{{item.isUser}}">
+          <text class="avatar-text">我</text>
         </view>
       </view>
     </block>
     
     <!-- 发送中的提示 -->
     <view wx:if="{{isSending}}" class="message ai-message">
-      <view class="message-content">
-        <text class="message-text">正在思考中...</text>
+      <view class="avatar ai-avatar">
+        <text class="avatar-text">民</text>
+      </view>
+      <view class="message-bubble ai-bubble sending">
+        <view class="message-content">
+          <text class="message-text">正在思考中...</text>
+        </view>
       </view>
     </view>
   </scroll-view>
