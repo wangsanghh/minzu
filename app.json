@@ -4,7 +4,8 @@
     "pages/camera/camera",
     "pages/calendar/calendar",
     "pages/knowledge/knowledge",
-    "pages/settings/settings"
+    "pages/settings/settings",
+    "pages/assistant/assistant"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -25,6 +26,10 @@
       {
         "pagePath": "pages/camera/camera",
         "text": "拍照识别"
+      },
+      {
+        "pagePath": "pages/assistant/assistant",
+        "text": "智能助手"
       },
       {
         "pagePath": "pages/calendar/calendar",
