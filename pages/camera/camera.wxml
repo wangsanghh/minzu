@@ -1,59 +1,71 @@
 
-<view class="container">
-  
-  <view class="camera-container">
-    <view class="camera-placeholder">
-      <icon type="camera" size="60" color="#1E90FF"></icon>
-      <text class="placeholder-text">上传图片识别民族服饰</text>
-    </view>
-    <view class="button-group">
-      <button class="upload-button" bindtap="chooseImage">上传图片识别</button>
-      <button class="history-button" bindtap="toggleHistory">
-        {{ showHistory ? '隐藏历史' : '查看历史' }}
-      </button>
-    </view>
-  </view>
-  
-  <!-- 历史记录列表 -->
-  <view class="history-container" wx:if="{{showHistory}}">
-    <view class="history-header">
-      <text class="history-title">历史记录 ({{historyRecords.length}})</text>
-      <button class="clear-button" bindtap="clearHistory" wx:if="{{historyRecords.length > 0}}">清除全部</button>
-    </view>
-    
-    <view class="history-list" wx:if="{{historyRecords.length > 0}}">
-      <block wx:for="{{historyRecords}}" wx:key="id">
-        <view class="history-item" bindtap="onHistoryItemTap" data-index="{{index}}">
-          <image class="history-image" src="{{item.image}}" mode="aspectFill"></image>
-          <view class="history-info">
-            <text class="history-nation">{{item.nation}}</text>
-            <text class="history-confidence">置信度: {{item.confidence}}%</text>
-            <text class="history-time">{{item.time}}</text>
+<view class="container"> 
+  <view class="header"> 
+    <text class="title">📸 民族服饰识别 🎨</text> 
+  </view> 
+ 
+  <!-- 上传区域 --> 
+  <view class="upload-section"> 
+    <view class="upload-box" bindtap="chooseImage"> 
+      <image wx:if="{{uploadedImage}}" class="uploaded-image" src="{{uploadedImage}}" mode="aspectFit"></image> 
+      <view wx:else class="upload-placeholder"> 
+        <text class="upload-icon">📷</text> 
+        <text class="upload-text">点击上传民族服饰照片 📤</text> 
+        <text class="upload-hint">支持从相册选择 📁</text> 
+      </view> 
+    </view> 
+  </view> 
+ 
+  <!-- 操作按钮 --> 
+  <view class="button-section"> 
+    <button class="action-button recognize-button" bindtap="chooseImage"> 
+      📷 上传图片识别
+    </button> 
+    <button class="action-button history-button" bindtap="toggleHistory">
+      {{ showHistory ? '🙈 隐藏历史' : '📚 查看历史'}}
+    </button> 
+  </view> 
+ 
+  <!-- 识别结果 --> 
+  <view class="result-section" wx:if="{{result}}"> 
+    <view class="result-card"> 
+      <view class="result-header"> 
+        <text class="result-title">✅ 识别结果</text> 
+      </view> 
+      <view class="result-content"> 
+        <text class="nation-name">🎭 {{result.nation}}</text> 
+        <text class="confidence">📊 置信度: {{result.confidence}}%</text> 
+      </view> 
+    </view> 
+  </view> 
+ 
+  <!-- 历史记录 --> 
+  <view class="history-section" wx:if="{{showHistory}}"> 
+    <view class="history-card">
+      <view class="history-header">
+        <text class="history-title">📑 历史记录 ({{historyRecords.length}})</text>
+        <button class="clear-button" bindtap="clearHistory" wx:if="{{historyRecords.length > 0}}">🗑️ 清除全部</button>
+      </view>
+      
+      <view class="history-list" wx:if="{{historyRecords.length > 0}}">
+        <block wx:for="{{historyRecords}}" wx:key="id">
+          <view class="history-item" bindtap="onHistoryItemTap" data-index="{{index}}">
+            <image class="history-image" src="{{item.image}}" mode="aspectFill"></image>
+            <view class="history-info">
+              <text class="history-nation">{{item.nation}}</text>
+              <text class="history-confidence">📊 置信度: {{item.confidence}}%</text>
+              <text class="history-time">{{item.time}}</text>
+            </view>
+            <text class="history-arrow">></text>
           </view>
-          <text class="history-arrow">></text>
-        </view>
-      </block>
-    </view>
-    
-    <view class="empty-history" wx:else>
-      <text class="empty-text">暂无历史记录</text>
-    </view>
-  </view>
-  
-  <!-- 显示上传的图片 -->
-  <view class="uploaded-image-container" wx:if="{{uploadedImage}}">
-    <text class="uploaded-title">上传的图片</text>
-    <image class="uploaded-image" src="{{uploadedImage}}" mode="aspectFit"></image>
-  </view>
-  
-  <!-- 识别结果 -->
-  <view class="result-container" wx:if="{{result}}">
-    <text class="result-title">识别结果</text>
-    <view class="result-content">
-      <view class="result-info">
-        <text class="nation-name">{{result.nation}}</text>
-        <text class="confidence">置信度: {{result.confidence}}%</text>
+        </block>
+      </view>
+      
+      <view class="empty-history" wx:else>
+        <text class="empty-text">暂无历史记录</text>
       </view>
     </view>
-  </view>
+  </view> 
+ 
+   
 </view>
